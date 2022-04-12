@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('add', function () {
-    return view('add');
-});
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('home', [UserController::class, "home"]);
+Route::get('form', [UserController::class, "form"]);
+Route::post('store', [UserController::class, "store"]);
