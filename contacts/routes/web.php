@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,11 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('home', [UserController::class, "home"]);
+
 Route::get('form', [UserController::class, "form"]);
 Route::post('store', [UserController::class, "store"]);
+
 Route::delete('destroy/{id}', [UserController::class, "destroy"]);
+
+Route::get('/show/{id}', [UserController::class, "show"]);
+Route::put('update/{id}', [UserController::class, "update"]);

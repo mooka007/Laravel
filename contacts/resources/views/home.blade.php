@@ -46,7 +46,8 @@
               @foreach ($friends as $friend)
                   
               <tr>
-                <td><img src="../images/prog.png" width="30px" alt=""></td>
+                {{-- <td><img src="../images/prog.png" width="30px" alt=""></td> --}}
+                <td class="active">{{$friend->id}}</td>
                 <td>{{$friend->name}}</td>
                 <td>{{$friend->email}}</td>
                 <td>{{$friend->phone}}</td>
@@ -57,8 +58,8 @@
                       @method('DELETE')
                       @csrf
                       {{-- <a  href=""><i class="btn bi bi-pencil fs-5 text-danger"></i></a> --}}
-                      <button class="btn btn-danger">delete</button>
-                      <a href="" ><i class="bi bi-trash fs-5 text-danger"></i></a>
+                      <button class="btn btn-danger"><i class="bi bi-trash fs-5 text-white"></i></button>
+                      <a href="show/{{$friend->id}}" class="btn btn-danger"><i class="bi bi-pencil fs-5 text-white"></i></a>
                     </form>
                   {{-- @endif --}}
                 </td>

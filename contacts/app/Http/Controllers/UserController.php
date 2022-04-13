@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function home()
     {
         $friends = Friend::all();
@@ -41,6 +45,29 @@ class UserController extends Controller
         Friend::findOrFail($id)->delete();
         return redirect('home');
     }
+
+
+    public function show($id)
+    {
+        $friend = Friend::find($id); 
+        return view('controll.show', ['friend' => $friend]);
+        
+    }
+
+
+
+    public function update(FrmRequest $req, $id){
+        $friend = Friend::find($id);
+        $friend->name = $req->name;
+        $friend->email = $req->email;
+        $friend->phone = $req->phone;
+        $friend->city = $req->city;
+        $friend->save();
+        return redirect('home');
+
+    }
+
+    
 
     
 }
