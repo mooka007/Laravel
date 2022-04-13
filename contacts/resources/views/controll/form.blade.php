@@ -55,9 +55,11 @@
                             </select>
                         </div>  --}}
                         <label for="inputState">City</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                            <select name="city" id="inputState" class="form-control">
+                                <option  selected>Choose...</option>
+                                @foreach ($cities as $city)
+                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                @endforeach
                             </select>
                         <input type="submit" name="save" class="form-group btn btn-danger mt-3"/>
                     <!-- <div class="form-group">

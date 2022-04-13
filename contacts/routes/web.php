@@ -25,3 +25,4 @@ Auth::routes();
 Route::get('home', [UserController::class, "home"]);
 Route::get('form', [UserController::class, "form"]);
 Route::post('store', [UserController::class, "store"]);
+Route::delete('destroy/{id}', [UserController::class, "destroy"]);

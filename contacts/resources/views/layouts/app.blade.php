@@ -61,7 +61,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -71,7 +71,20 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                </div> --}}
+                            </li>
+                            <li>
+                                
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                
                             </li>
                         @endguest
                     </ul>
@@ -79,11 +92,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-5 pb-5">
             @yield('content')
         </main>
     </div>
-    <footer class="mt-auto fw-bolder text-center nono text-dark-50">
+    <footer class="m-0 mt-5 p-3 bg-danger fw-bolder text-center align-self-end text-dark-50">
         <p >Made with Love <3 , by <a href="https://github.com/mooka007" class="text-primary">MoOka</a></p>
       </footer>
 </body>

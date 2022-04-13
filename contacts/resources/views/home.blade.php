@@ -52,8 +52,15 @@
                 <td>{{$friend->phone}}</td>
                 <td>{{$friend->city}}</td>
                 <td style="width: 200px">
-                  <a  href=""><i class="bi bi-pencil fs-5 text-danger"></i></a>
-                  <a href="" ><i class="bi bi-trash fs-5 text-danger"></i></a>
+                  {{-- @if (Auth::user()->id == $friend->user_id) --}} {{-- <<== khasni nziid foreign key dyal user fi table dyal friends !! --}}
+                    <form action="/destroy/{{$friend->id}}" method="POST">
+                      @method('DELETE')
+                      @csrf
+                      {{-- <a  href=""><i class="btn bi bi-pencil fs-5 text-danger"></i></a> --}}
+                      <button class="btn btn-danger">delete</button>
+                      <a href="" ><i class="bi bi-trash fs-5 text-danger"></i></a>
+                    </form>
+                  {{-- @endif --}}
                 </td>
               </tr>
               @endforeach

@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('friends', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->bigInteger('phone');
-            $table->bigInteger('city');
-            $table->timestamps();
+        Schema::table('friends', function (Blueprint $table) {
+            $table->unsignedBigInteger('city')->nullable();
+            $table->foreign('city')->references('id')->on('cities');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friends');
+        Schema::table('friends', function (Blueprint $table) {
+            // $table-> dr
+        });
     }
 };

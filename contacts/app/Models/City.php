@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
+
+    public function friends()
+    {
+        return $this->hasMany(Friend::class); // return hasMany is a table
+    }
 }
 
 
